@@ -1,0 +1,61 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.window {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    background-color: #acacac;
+}
+
+.header {
+    display: flexbox;
+    justify-content: center;
+    align-content: center;
+
+    background: linear-gradient(to top, #9d9d9d, #ffffff);
+}
+
+.text {
+    font-family: sans-serif;
+}
+
+
+
+.logo-img {
+    width: 10%;
+
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.logo-text {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+}
+
+.documents {
+    border-radius: 20px;
+    background-color: #ffffff;
+    width: 80%;
+    height: 70vh;
+    margin: 0 auto;
+}
+
+.documents-list {
+    padding: 10px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+}
