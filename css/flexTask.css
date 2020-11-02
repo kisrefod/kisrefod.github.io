@@ -1,0 +1,82 @@
+.flexTask {
+    display: flex;
+    width: 250px;
+    height: 250px;
+
+    font-family: fantasy;
+    color: #321702;
+    font-size: 0vw;
+
+    background-image: url("./../img/glass1.png");
+    margin-left: 5%;
+
+    display: none;
+}
+
+#cap {
+    display: flex;
+    width: 129px;
+    height: 44px;
+    margin-left: 20px;
+    margin-top: 24px;
+    
+}
+
+@keyframes swinging {
+    0% { transform: rotate(0deg); }
+    5% { transform: rotate(12deg); }
+    10% { transform: rotate(-10deg); }
+    15% { transform: rotate(9deg); }
+    20% { transform: rotate(-8deg); }
+    25% { transform: rotate(7deg); }
+    30% { transform: rotate(-6deg); }
+    35% { transform: rotate(5deg); }
+    40% { transform: rotate(-4deg); }
+    45% { transform: rotate(3deg); }
+    50% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.flexTask:hover {
+    animation: swinging 15s ease-in-out;
+    transform-origin: 50% 0;
+}
+
+.flexTask:hover #cap {
+    transform: rotate(30deg);
+    margin-left: 40px;
+}
+
+.flexTask:hover #yammy {
+    display: flex;
+    font-size: 32px;
+    margin-top: 3vw;
+    margin-left: 9vw;
+    text-shadow: 4px 4px 6px;
+}
+
+.flexTask:active {
+    animation: none;
+    background-image: url("./../img/glass2.png");
+    filter: blur(0.1vw);
+    -ms-filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='30');
+}
+
+.flexTask:active #yammy {
+    display: none;
+}
+
+.flexTask:active #cap {
+    position: fixed;
+    transition: 1s;
+    transform: rotate(360deg);
+    margin-top: 70%;
+    margin-left: 70%;
+}
+
+.flexTask:active #allGone {
+    display: flex;
+    position: fixed;
+    font-size: 32px;
+    margin-left: 1vw;
+}

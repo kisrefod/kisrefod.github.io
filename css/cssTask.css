@@ -1,0 +1,127 @@
+.cssTask {
+    display: none;
+    position: relative;
+    margin: 50px;
+}
+
+.ears {
+    z-index: 1;
+    position: inherit;
+    
+    width: 200px; 
+    height: 120px;
+    background: radial-gradient(#bbbbbb, #888888);
+    border-radius: 50%;
+}
+
+#rightEar {
+    margin-top: -120px;
+    margin-left: 30px;
+    transform: rotate(-45deg);
+}
+
+#leftEar {
+    margin-top: -220px;
+    margin-left: -40px;
+    transform: rotate(45deg);
+}
+
+.holes {
+    z-index: 2;
+    position: inherit;
+    width: 100px; 
+    height: 100px;
+    
+    background: white;
+    border-radius: 50%;
+    margin-top: -120px;
+}
+
+#rightEarHole {
+    margin-top: -100px;
+    margin-left: 95px;
+}
+
+#face {
+    z-index: 3;
+    position: inherit;
+    width: 200px; 
+    height: 200px;
+    
+    background: radial-gradient(#FFFFFF, #888888);
+    border-radius: 50%;
+}
+
+.eyes {
+    position: inherit;
+    z-index: 4;
+    background: white;
+
+    border: 10px solid;
+    border-color: black;
+
+    padding: 1px;
+    border-radius: 50%;
+}
+
+#leftEye {
+    margin-top: -150px;
+    margin-left: 40px;
+
+    width: 25px;
+    height: 25px;   
+}
+
+#rightEye {
+    margin-top: -47px;
+    margin-left: 115px;
+
+    width: 25px;
+    height: 25px;   
+}
+
+.mouth {
+    position: inherit;
+    z-index: 4;
+}
+
+#upperLip {
+    width: 80px;
+    height: 40px; 
+    
+    margin-top: -70px;
+    margin-left: 60px;
+    border-top: 40px solid #666666;
+    border-radius: 50%;
+}
+
+#lowerLip {
+    width: 50px; 
+    height: 30px;
+    
+    margin-top: -10px;
+    margin-left: 75px;
+    border-bottom: 50px solid #888888;
+    border-radius: 50%;
+}
+
+.tie {
+    position: inherit;
+    z-index: 4;
+    margin-top: 160px;
+}
+
+#leftTie {
+    border: 25px solid transparent;
+    
+    margin-top: -10px;
+    margin-left: 65px;
+    border-left: 40px solid red;
+}
+
+#rightTie {
+    border: 25px solid transparent;
+    margin-top: -50px;
+    margin-right: 90px;
+    border-right: 40px solid red;
+}
