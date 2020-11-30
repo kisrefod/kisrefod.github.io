@@ -1,6 +1,6 @@
-var angleCatTail = 0;
-var angleCatBack = 0;
-var angleCatFront = 0;
+var angleCatTail = 90;
+var angleCatBack = 180;
+var angleCatFront = 270;
 var angleCatHead = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -87,6 +87,7 @@ function catRotate(cat) {
         angleCatHead = (angleCatHead+90) % 360
         angle = angleCatHead
     }
+    cat.className = 'cats rotate' + angle
 }
 
 function checkImg() {
@@ -118,8 +119,6 @@ function checkImg() {
     )
 
     let anglesAreEqual = (angleCatTail === angleCatBack) && (angleCatBack === angleCatFront) && (angleCatFront === angleCatHead)
-    
-        console.log(deviation)
 
     if (anglesAreEqual && deviation < 10) {
         animateWalkingCat(catTail.x, catTail.y)
