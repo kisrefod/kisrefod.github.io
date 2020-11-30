@@ -9,11 +9,13 @@
 		<link rel="stylesheet" type="text/css" href="css/jsTask.css">
 		<link rel="stylesheet" type="text/css" href="css/functionTask.css">
 		<link rel="stylesheet" type="text/css" href="css/DOM.css">
+		<link rel="stylesheet" type="text/css" href="css/drag.css">
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="js/content.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
 		<script type="text/javascript" src="js/DOM.js"></script>
+		<script type="text/javascript" src="js/drag.js"></script>
 	</head>
 
 	<body>
@@ -25,12 +27,13 @@
 		</header>
 		<nav>
 			<div id="navBlock"> 
-				<a class="navLinks" id="firstLink"" href="" onclick="firstTaskPressed()">Site</a>
-				<a class="navLinks" href="" onclick="secondTaskPressed()">CSS</a>
-				<a class="navLinks" href="" onclick="thirdTaskPressed()">Flex</a>
-				<a class="navLinks" href="" onclick="fourthTaskPressed()">JS</a>
-				<a class="navLinks" href="" onclick="fifthTaskPressed()">Function</a>
-				<a class="navLinks" href="" onclick="DOMTaskPressed()">DOM</a>
+				<a class="navLinks" id="firstLink"" onclick="firstTaskPressed()">Site</a>
+				<a class="navLinks" onclick="secondTaskPressed()">CSS</a>
+				<a class="navLinks" onclick="thirdTaskPressed()">Flex</a>
+				<a class="navLinks" onclick="fourthTaskPressed()">JS</a>
+				<a class="navLinks" onclick="fifthTaskPressed()">Function</a>
+				<a class="navLinks" onclick="DOMTaskPressed()">DOM</a>
+				<a class="navLinks" onclick="DragTaskPressed()">Drag</a>
 			</div>
 		</nav>
 		
@@ -84,15 +87,24 @@
 						
 					</div>
 				</div>
+
+				<div class="DragTask">
+					<img src="img/catTail.png" alt="Здесь должна быть картинка" class="cats" id="catTail">
+					<img src="img/catBack.png" alt="Здесь должна быть картинка" class="cats" id="catBack">
+					<img src="img/catFront.png" alt="Здесь должна быть картинка" class="cats" id="catFront">
+					<img src="img/catHead.png" alt="Здесь должна быть картинка" class="cats" id="catHead">
+					<img src="img/walkingCat.png" alt="Здесь должна быть картинка" class="" id="walkingCat">
+					<p id="congratulations">Поздравляем!</p>
+				</div>
 			</div>
 			<div class="rightAside">
-				<div class="tabs">Вкладка раз</div>
-				<div class="tabs">Вкладка два</div>
-				<div class="tabs">Вкладка три</div>
+				<div class="tabs" id="tab1">Здесь</div>
+				<div class="tabs" id="tab2">Могла быть</div>
+				<div class="tabs" id="tab3">Реклама</div>
 			</div>
 		</div>
 		<footer>
 			<p class="footerText">Тратата-ляляля</p>
-		</footer>	
+		</footer>
 	</body>
 </html>
