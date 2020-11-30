@@ -30,6 +30,7 @@ function firstTaskPressed() {
     $('.jsTask').hide();
     $(".functionTask").hide();
     $(".DOMTask").hide();
+    $(".DragTask").hide();
 }
 
 function secondTaskPressed() {
@@ -39,6 +40,7 @@ function secondTaskPressed() {
     $('.jsTask').hide();
     $(".functionTask").hide();
     $(".DOMTask").hide();
+    $(".DragTask").hide();
 } 
 
 function thirdTaskPressed() {
@@ -48,6 +50,7 @@ function thirdTaskPressed() {
     $('.jsTask').hide();
     $(".functionTask").hide();
     $(".DOMTask").hide();
+    $(".DragTask").hide();
 }
 
 function fourthTaskPressed(){
@@ -57,6 +60,7 @@ function fourthTaskPressed(){
     $('.jsTask').show();
     $(".functionTask").hide();
     $(".DOMTask").hide();
+    $(".DragTask").hide();
 }
 
 function fifthTaskPressed(){
@@ -66,6 +70,7 @@ function fifthTaskPressed(){
     $(".jsTask").hide();
     $(".functionTask").show();
     $(".DOMTask").hide();
+    $(".DragTask").hide();
 }
 
 function DOMTaskPressed(){
@@ -75,4 +80,15 @@ function DOMTaskPressed(){
     $(".jsTask").hide();
     $(".functionTask").hide();
     $(".DOMTask").show();
+    $(".DragTask").hide();
+}
+
+function DragTaskPressed(){
+    $('#site').hide();
+    $(".cssTask").hide();
+    $(".flexTask").hide();
+    $(".jsTask").hide();
+    $(".functionTask").hide();
+    $(".DOMTask").hide();
+    $(".DragTask").show();
 }
