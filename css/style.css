@@ -19,7 +19,7 @@ header {
 	
     background-color: #136F63;
     flex-shrink: 0;
-    min-height: 13vh;
+    min-height: 9.75vh;
     min-width: 1200px;
 }
 
@@ -29,7 +29,7 @@ header {
     text-decoration: none;
     color: white;
     font-family: sans-serif;
-    font-size: 64px;
+    font-size: 6.4vh;
 }
 
 nav {
@@ -37,12 +37,12 @@ nav {
     flex-wrap: wrap;
 
     width: 100%;
-    top: 13vh;
+    top: 9.75vh;
     position: absolute;
 
     background-color: #22AAA1;
     flex-shrink: 0;
-    min-height: 6vh;
+    min-height: 4.5vh;
     min-width: 1200px;
 }
 
@@ -83,7 +83,7 @@ nav {
     align-items: flex-end;
     color: lightgrey;
     font-family: sans-serif;
-    font-size: 48px;
+    font-size: 4.8vh;
 }
 
 .navLinks:hover {
@@ -101,8 +101,8 @@ nav {
     position: absolute;
     
     width: 100%;
-    top: 19vh;
-    min-height: 71vh;
+    top: 14.25vh;
+    min-height: 53.25vh;
     min-width: 1200px;
     background-color: #fcf;
 }
@@ -114,8 +114,8 @@ nav {
     position: absolute;
     
     width: 100%;
-    top: 90vh;
-    min-height: 10vh;
+    top: 67.5vh;
+    min-height: 7.5vh;
     min-width: 1200px;
     background-color: #031f13;
 }
@@ -123,7 +123,7 @@ nav {
 #timer {
     display: flex;
     font-family: sans-serif;
-    font-size: 80px;
+    font-size: 8vh;
     color: white;
 
     margin-left: 5vw;
@@ -134,7 +134,7 @@ nav {
 #resultText {
     display: flex;
     font-family: sans-serif;
-    font-size: 32px;
+    font-size: 3vh;
     color: white;
 
     margin-left: auto;
@@ -153,13 +153,13 @@ nav {
 .button {
     display: flex;
     font-family: sans-serif;
-    font-size: 32px;
+    font-size: 3vh;
     color: white;
 
     align-self: center;
 
     background-color: #088;
-    padding: 10px;
+    padding: 1vh;
     border-radius: 15px;
 }
 
@@ -174,13 +174,13 @@ nav {
     justify-content: center;
     
     font-family: sans-serif;
-    font-size: 36px;
+    font-size: 3.6vh;
 
-    width: 100px; 
-    height: 100px;
+    width: 10vh; 
+    height: 10vh;
     background: #F84;
     border-radius: 50%;
-    border: 10px solid #730;
+    border: 1vh  solid #730;
 }
 
 @keyframes swinging {
@@ -200,11 +200,11 @@ nav {
 
 #congratulations {
     position: absolute;
-    left: 600px;
-    top: 100px;
+    left: 60vh;
+    top: 10vh;
     color: brown;
     font-family: sans-serif;
-    font-size: 128px;
+    font-size: 12.8ch;
 
     animation: swinging 30s ease-in-out;
     transform-origin: 50% 0;
