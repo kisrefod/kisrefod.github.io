@@ -19,7 +19,7 @@ header {
 	
     background-color: #136F63;
     flex-shrink: 0;
-    min-height: 9vh;
+    min-height: 15vh;
     min-width: 1200px;
 }
 
@@ -37,12 +37,12 @@ nav {
     flex-wrap: wrap;
 
     width: 100%;
-    top: 9.75vh;
+    top: 15vh;
     position: absolute;
 
     background-color: #22AAA1;
     flex-shrink: 0;
-    min-height: 4.5vh;
+    min-height: 6vh;
     min-width: 1200px;
 }
 
@@ -60,8 +60,8 @@ nav {
     
     align-self: center;
 
-    width: 40px; 
-    height: 40px;
+    width: 4vh; 
+    height: 4vh;
     
     border-radius: 50%;
 }
@@ -101,8 +101,8 @@ nav {
     position: absolute;
     
     width: 100%;
-    top: 14.25vh;
-    min-height: 53.25vh;
+    top: 21vh;
+    min-height: 68vh;
     min-width: 1200px;
     background-color: #fcf;
 }
@@ -114,8 +114,8 @@ nav {
     position: absolute;
     
     width: 100%;
-    top: 67.5vh;
-    min-height: 7.5vh;
+    top: 89vh;
+    min-height: 11vh;
     min-width: 1200px;
     background-color: #031f13;
 }
@@ -134,7 +134,7 @@ nav {
 #resultText {
     display: flex;
     font-family: sans-serif;
-    font-size: 3vh;
+    font-size: 3.2vh;
     color: white;
 
     margin-left: auto;
@@ -153,13 +153,13 @@ nav {
 .button {
     display: flex;
     font-family: sans-serif;
-    font-size: 3vh;
+    font-size: 3.2vh;
     color: white;
 
     align-self: center;
 
     background-color: #088;
-    padding: 1vh;
+    padding: 10px;
     border-radius: 15px;
 }
 
@@ -180,7 +180,7 @@ nav {
     height: 10vh;
     background: #F84;
     border-radius: 50%;
-    border: 1vh  solid #730;
+    border: 1vh solid #730;
 }
 
 @keyframes swinging {
@@ -204,7 +204,7 @@ nav {
     top: 10vh;
     color: brown;
     font-family: sans-serif;
-    font-size: 12.8ch;
+    font-size: 12.8vh;
 
     animation: swinging 30s ease-in-out;
     transform-origin: 50% 0;
