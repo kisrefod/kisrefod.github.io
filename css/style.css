@@ -15,12 +15,11 @@ header {
     flex-wrap: wrap;
     
     width: 100%;
-    height: 120px;
     position: absolute;
 	
     background-color: #136F63;
     flex-shrink: 0;
-    min-height: 120px;
+    min-height: 13vh;
     min-width: 1200px;
 }
 
@@ -38,13 +37,12 @@ nav {
     flex-wrap: wrap;
 
     width: 100%;
-    height: 60px;
-    top: 120px;
+    top: 13vh;
     position: absolute;
 
     background-color: #22AAA1;
     flex-shrink: 0;
-    min-height: 60px;
+    min-height: 6vh;
     min-width: 1200px;
 }
 
@@ -102,10 +100,9 @@ nav {
     overflow: auto;
     position: absolute;
     
-    height: 680px;
     width: 100%;
-    top: 180px;
-    min-height: 400px;
+    top: 19vh;
+    min-height: 71vh;
     min-width: 1200px;
     background-color: #fcf;
 }
@@ -116,10 +113,9 @@ nav {
     overflow: auto;
     position: absolute;
     
-    height: 100px;
     width: 100%;
-    top: 860px;
-    min-height: 100px;
+    top: 90vh;
+    min-height: 10vh;
     min-width: 1200px;
     background-color: #031f13;
 }
