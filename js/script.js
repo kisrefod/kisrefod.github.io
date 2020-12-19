@@ -120,7 +120,7 @@ function changeBlockPositon() {
 
 function lvl1Pressed() {
     $("#instruction").html("LVL1: Последовательно выберите числа от меньшего к большему")
-    $("#instruction").css('font-size', '64px')
+    $("#instruction").css('font-size', '6.4vh')
 
     lvlNum = 1
     gameBlocked = false
@@ -133,7 +133,7 @@ function lvl1Pressed() {
 
 function lvl2Pressed() {
     $("#instruction").html("LVL2: Последовательно выберите буквы в порядке алфавита")
-    $("#instruction").css('font-size', '64px')
+    $("#instruction").css('font-size', '6.4vh')
 
     lvlNum = 2
     gameBlocked = false
@@ -146,7 +146,7 @@ function lvl2Pressed() {
 
 function lvl3Pressed() {
     $("#instruction").html("LVL3: Определите, что за слово изображено на картинке. Последовательно выберите те, первая буква которых встречается в алфавите раньше остальных")
-    $("#instruction").css('font-size', '48px')
+    $("#instruction").css('font-size', '6.4vh')
 
     lvlNum = 3
     gameBlocked = false
