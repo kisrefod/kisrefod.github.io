@@ -2,109 +2,35 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Учебный</title>
+		<title>Тыкалка</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/cssTask.css">
-		<link rel="stylesheet" type="text/css" href="css/flexTask.css">
-		<link rel="stylesheet" type="text/css" href="css/jsTask.css">
-		<link rel="stylesheet" type="text/css" href="css/functionTask.css">
-		<link rel="stylesheet" type="text/css" href="css/DOM.css">
-		<link rel="stylesheet" type="text/css" href="css/drag.css">
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="js/content.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
-		<script type="text/javascript" src="js/function.js"></script>
-		<script type="text/javascript" src="js/DOM.js"></script>
-		<script type="text/javascript" src="js/drag.js"></script>
 	</head>
 
 	<body>
 		<header>
-			<div id="logoBlock">
-				<img  class="logo" src="./img/logo.png">
-				<a href="" id="logoName">IVAKOS</a>
-			</div>
+			<a id="instruction">LVL1: Последовательно выберите числа от меньшего к большему</a>
 		</header>
 		<nav>
 			<div id="navBlock"> 
-				<a class="navLinks" id="firstLink"" onclick="firstTaskPressed()">Site</a>
-				<a class="navLinks" onclick="secondTaskPressed()">CSS</a>
-				<a class="navLinks" onclick="thirdTaskPressed()">Flex</a>
-				<a class="navLinks" onclick="fourthTaskPressed()">JS</a>
-				<a class="navLinks" onclick="fifthTaskPressed()">Function</a>
-				<a class="navLinks" onclick="DOMTaskPressed()">DOM</a>
-				<a class="navLinks" onclick="DragTaskPressed()">Drag</a>
+				<a class="navLinks" id="firstLink"" onclick="lvl1Pressed()">LVL 1</a>
+				<a class="navLinks" onclick="lvl2Pressed()">LVL 2</a>
+				<a class="navLinks" onclick="lvl3Pressed()">LVL 3</a>
+				<div class='colorDesign' id='firstColorDesign' onclick="firstColorDesign()"></div>
+				<div class='colorDesign' id='secondColorDesign' onclick="secondColorDesign()"></div>
 			</div>
 		</nav>
 		
 		<div id="siteBody">
-			<div class="content">
-				<div id="site">
-					<div class="plate" id="left-top" href="#" onclick="leftTopClick()"></div>
-					<div class="plate" id="right-top">
-						<img src="img/cat.jpg" alt="Здесь должна быть картинка" id="right-top-img" onclick="rightTopClick()">
-					</div>
-					<div class="plate" id="left-bottom" href="#" onclick="leftBottomClick()"></div>
-					<div class="plate" id="right-bottom" href="#" onclick="rightBottomClick()"></div>
-				</div>
-
-				<div class="cssTask">
-					<div id="face"></div>
-					<div id="leftEye" class="eyes"></div>
-					<div id="rightEye" class="eyes"></div>
-					<div id="lowerLip" class="mouth"></div>
-					<div id="upperLip" class="mouth"></div>
-					<div id="leftTie" class="tie"></div>
-					<div id="rightTie" class="tie"></div>
-					<div id="leftEar" class="ears"></div>
-					<div id="rightEar" class="ears"></div>
-					<div id="leftEarHole" class="holes"></div>
-					<div id="rightEarHole" class="holes"></div>
-				</div>
-				<div class="flexTask">
-					<img id="cap" src="./img/cap.png">
-					<p id="yammy">Вкусно!</p>
-					<p id="allGone">Все пропало...</p>
-				</div>
-				
-				<div class="jsTask">
-					<input id="jsTaskInput" type="number">
-					<button id="jsTaskButton" onclick="chooseProduct()">Выбор товара</button>
-					<p id="jsTaskAnswer">Вы можете приобрести ЧАЙНИК</p>
-				</div>
-
-				<div class="functionTask">
-					<input class="functionTaskInput" id="A" placeholder="A" type="number">
-					<input class="functionTaskInput" id="B" placeholder="B" type="number">
-					<button id="functionTaskButton" onclick="calcResult()">Вычислить значение</button>
-					<p id="functionTaskAnswer">РЕЗУЛЬТАТ: </p>
-				</div>
-
-				<div class="DOMTask">
-					<button class="DOMTaskButton" onclick="repaint()">Перекрасить</button>
-					<button class="DOMTaskButton" onclick="create()">Создать</button>
-					<div id="rand">
-						
-					</div>
-				</div>
-
-				<div class="DragTask">
-					<img src="img/catTail.png" alt="Здесь должна быть картинка" class="cats rotate90" id="catTail">
-					<img src="img/catBack.png" alt="Здесь должна быть картинка" class="cats rotate180" id="catBack">
-					<img src="img/catFront.png" alt="Здесь должна быть картинка" class="cats rotate270" id="catFront">
-					<img src="img/catHead.png" alt="Здесь должна быть картинка" class="cats" id="catHead">
-					<img src="img/walkingCat.png" alt="Здесь должна быть картинка" class="" id="walkingCat">
-					<p id="congratulations">Поздравляем!</p>
-				</div>
-			</div>
-			<div class="rightAside">
-				<div class="tabs" id="tab1">Здесь</div>
-				<div class="tabs" id="tab2">Могла быть</div>
-				<div class="tabs" id="tab3">Реклама</div>
-			</div>
+			<p id="congratulations">Поздравляем!</p>
 		</div>
-		<footer>
-			<p class="footerText">Тратата-ляляля</p>
-		</footer>
+
+		<div id="footer">
+			<div id="timer">20</div>
+			<div id="resultText"></div>
+			<div id="saveButton" class="button" onclick="savePressed()">СОХРАНИТЬ</div>
+			<div id="restartButton" class="button" onclick="restartLvl()">ЗАНОВО</div>
+		</div>
 	</body>
 </html>
