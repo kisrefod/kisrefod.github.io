@@ -227,7 +227,6 @@ function generateSequanceLVL1() {
             return 1
         }
     })
-    console.dir(sortedSequence)
 }
 
 function generateSequanceLVL2() { 
