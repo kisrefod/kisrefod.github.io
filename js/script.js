@@ -219,7 +219,15 @@ function generateSequanceLVL1() {
             sortedSequence[i] = num
         }
     }
-    sortedSequence.sort()
+
+    sortedSequence.sort(function(a, b) {
+        if (a < b) {
+            return -1
+        } else if (a > b) {
+            return 1
+        }
+    })
+    console.dir(sortedSequence)
 }
 
 function generateSequanceLVL2() { 
