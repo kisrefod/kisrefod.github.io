@@ -17,7 +17,7 @@ header {
     width: 100%;
     position: absolute;
 	
-    background-color: #136F63;
+    background-color: #036F03;
     flex-shrink: 0;
     min-height: 15vh;
     min-width: 1200px;
@@ -40,7 +40,7 @@ nav {
     top: 15vh;
     position: absolute;
 
-    background-color: #22AAA1;
+    background-color: #4A4;
     flex-shrink: 0;
     min-height: 6vh;
     min-width: 1200px;
@@ -67,8 +67,8 @@ nav {
 }
 
 #firstColorDesign {
-    background: #136f63;
-    border: 5px solid #22aaa1;
+    background: #036F03;
+    border: 5px solid #4A4;
 }
 
 #secondColorDesign {
