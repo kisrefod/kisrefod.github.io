@@ -5,13 +5,16 @@ let blockNum = 5
 let lvlNum = 1
 
 let timerValue = 20
-const timerConst = 20
+let timerCount = 20
 
-const forbiddenTop = 180
-const forbiddenBottom = 550
+const forbiddenTop = 50
+const forbiddenBottom = 400
 const blockRadius = 75
+const maxBlockNum = 9
 
 let gameBlocked = false
+
+let username = 'Пользователь'
 
 let timer
 
@@ -33,29 +36,35 @@ function setTimer() {
     }, 1000)
 }
 
+function removeBlocks() {
+    for (let i = 1; i <= blockNum; i++) {
+        $('#block'+i).remove()
+    }
+}
+
 function createBlocks() {
     for (let i = 1; i <= blockNum; i++) {
-        let div = '<div class="block" id="block' + i + '" onclick="block' + i + 'Pressed()"></div>'
+        let div = '<div class="block" id="block' + i + '" onclick="blockPressed(this)"></div>'
         $('#siteBody').append(div)
     }
 }
 
 function generateLvl1_2Blocks() {
     for (let i = 1; i <= blockNum; i++) {
-        let div = '<div class="block" id="block' + i + '" onclick="block' + i + 'Pressed()"></div>'
+        let div = '<div class="block" id="block' + i + '" onclick="blockPressed(this)"></div>'
         $('#block'+i).replaceWith(div)
     }
 }
 
 function generateLvl3Blocks() {
     for (let i = 1; i <= blockNum; i++) {
-        let img = '<img class="block" id="block' + i + '" onclick="block' + i + 'Pressed()" src="img/' + sortedSequence[i-1] + '"></img>'
+        let img = '<img class="block" id="block' + i + '" onclick="blockPressed(this)" src="img/' + sortedSequence[i-1] + '"></img>'
         $('#block'+i).replaceWith(img)
     }
 }
 
 function generateTimer() {
-    timerValue = timerConst
+    timerValue = timerCount
     $('#timer').text(timerValue)
 }
 
@@ -145,7 +154,7 @@ function lvl2Pressed() {
 } 
 
 function lvl3Pressed() {
-    $("#instruction").html("LVL3: Определите, что за слово изображено на картинке. Последовательно выберите те, первая буква которых встречается в алфавите раньше остальных")
+    $("#instruction").html("LVL3: Определите, что за слово изображено на картинке. Выберите те, первая буква которых встречается в алфавите раньше")
     $("#instruction").css('font-size', '6.4vh')
 
     lvlNum = 3
@@ -237,12 +246,12 @@ function generateSequanceLVL2() {
 }
 
 function generateSequanceLVL3() {
-    sortedSequence = ['арбуз.png', 'кот.png', 'морковка.png', 'папка.png', 'свечка.png']
+    sortedSequence = ['арбуз.png', 'дерево.png', 'кот.png', 'лампочка.png', 'морковка.png', 'папка.png', 'свечка.png', 'телефон.png', 'утюг.png', 'шестерня.png']
 }
 
 function savePressed() {
     const a = document.createElement('a');
-    let msg = 'Пользователь прошел уровень ' + lvlNum + ' с результатом: ' + timerValue
+    let msg = 'Пользователь под именем ' + username + ' прошел уровень ' + lvlNum + ' с результатом: ' + timerValue + '\n' + 'Значение таймера: ' + timerCount + '\n' + 'Число шариков: ' + blockNum
     const file = new Blob([msg], {type: 'text/plain'});
     
     a.href= URL.createObjectURL(file);
@@ -252,80 +261,24 @@ function savePressed() {
     URL.revokeObjectURL(a.href);
 }
 
-function block1Pressed() {
+function blockPressed(evt) {
     if(gameBlocked) {
         return
     }
 
-    $('#block1').hide()
-}
-
-function block2Pressed() {
-    if(gameBlocked) {
-        return
+    let blockIndex = +/\d+/.exec(evt.id)
+    let previousBlocksAreHidden = true
+    for (i = 1; i < blockIndex; i++) {
+        if ($('#block' + i).is(":hidden") === false) {
+            previousBlocksAreHidden = false
+        }
     }
-
-    let previousBlocksAreHidden = $('#block1').is(":hidden")
+                                
     if (previousBlocksAreHidden) {
-        $('#block2').hide()
-    } else {
-        gameBlocked = true
-        clearInterval(timer)
-        $('#resultText').text('Вы ошиблись : (')
-        $('#resultText').show()   
-        $('#restartButton').show()
-    }
-}
-
-function block3Pressed() {
-    if(gameBlocked) {
-        return
-    }
-
-    let previousBlocksAreHidden = $('#block1').is(":hidden") 
-                                && $('#block2').is(":hidden")
-    if (previousBlocksAreHidden) {
-        $('#block3').hide()
-    } else {
-        gameBlocked = true
-        clearInterval(timer)
-        $('#resultText').text('Вы ошиблись : (')
-        $('#resultText').show()
-        $('#restartButton').show()
-    }
-}
-
-function block4Pressed() {
-    if(gameBlocked) {
-        return
-    }
-
-    let previousBlocksAreHidden = $('#block1').is(":hidden") 
-                                && $('#block2').is(":hidden")
-                                && $('#block3').is(":hidden")
-    if (previousBlocksAreHidden) {
-        $('#block4').hide()
-    } else {
-        gameBlocked = true
-        clearInterval(timer)
-        $('#resultText').text('Вы ошиблись : (')
-        $('#resultText').show()
-        $('#restartButton').show()
-    }
-}
-
-function block5Pressed() {
-    if(gameBlocked) {
-        return
-    }
-
-    let previousBlocksAreHidden = $('#block1').is(":hidden") 
-                                && $('#block2').is(":hidden")
-                                && $('#block3').is(":hidden")
-                                && $('#block4').is(":hidden")
-    if (previousBlocksAreHidden) {
-        $('#block5').hide()
-        showResult()
+        $('#block' + blockIndex).hide()
+        if (blockIndex == blockNum) {
+            showResult()
+        }
     } else {
         gameBlocked = true
         clearInterval(timer)
@@ -372,8 +325,8 @@ function getRandNum(max){//Возвращает целое число < max
 }
 
 function firstColorDesign() {
-    $('header').css("background-color", "#136F63");
-    $('nav').css("background-color", "#22AAA1");
+    $('header').css("background-color", "#036F03");
+    $('nav').css("background-color", "#4A4");
     $('#siteBody').css("background-color", "#fcf");
     $('#footer').css("background-color", "#031f13");
 }
@@ -381,6 +334,7 @@ function firstColorDesign() {
 function secondColorDesign() {
     $('header').css("background-color", "#aa222b");
     $('nav').css("background-color", "#dd555e");
-    $('#siteBody').css("background-color", "#cff");
+    $('#siteBody').css("background-color", "#afa");
     $('#footer').css("background-color", "#1f0303");
 }
+
