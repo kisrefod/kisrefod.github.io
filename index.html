@@ -4,8 +4,13 @@
 		<meta charset="utf-8">
 		<title>Тыкалка</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/animations.css">
+		<link rel="stylesheet" type="text/css" href="css/animations.css">
+		<link rel="stylesheet" type="text/css" href="css/settings.css">
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/animations.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
 	</head>
 
 	<body>
@@ -19,11 +24,41 @@
 				<a class="navLinks" onclick="lvl3Pressed()">LVL 3</a>
 				<div class='colorDesign' id='firstColorDesign' onclick="firstColorDesign()"></div>
 				<div class='colorDesign' id='secondColorDesign' onclick="secondColorDesign()"></div>
+				<a href="#settingModal" class="openModal">
+					<img id='settings' src="/img/settings.png">
+				</a>
 			</div>
 		</nav>
 		
 		<div id="siteBody">
 			<p id="congratulations">Поздравляем!</p>
+			<div id="settingModal" class="modalDiv">
+				<div id="settingHeader">
+					<span class="modalTitle">Настройки</span>
+					<span class="modalClose">X</span>
+				</div>
+
+				<div id="settingBody">
+					<div class="settingField">
+						<input class="settingInput" id="username">
+						<p class="settingText">Имя пользователя</p>
+					</div>
+					
+					<div class="settingField">
+						<input class="settingInput" id="blockNumber" type="number">
+						<p class="settingText">Число шариков (>0 и <10)</p>
+					</div>
+					
+					<div class="settingField">
+						<input class="settingInput" id="timerCount" type="number">
+						<p class="settingText">Значение таймера (>2)</p>
+					</div>
+					
+					<button id="settingApply" onclick="settingApply()">ПРИМЕНИТЬ</button>
+				</div>
+				
+			</div>
+			<div id="overlay"></div>
 		</div>
 
 		<div id="footer">
