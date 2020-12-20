@@ -120,6 +120,17 @@ nav {
     background-color: #031f13;
 }
 
+#clickText {
+    display: flex;
+    font-family: sans-serif;
+    font-size: 8vh;
+    color: white;
+
+    margin-left: 5vw;
+    margin-right: auto;
+    align-self: center;
+}
+
 #timer {
     display: flex;
     font-family: sans-serif;
@@ -141,15 +152,6 @@ nav {
     align-self: center;
 }
 
-#saveButton {
-    margin-left: 2vw;
-}
-
-#restartButton {
-    margin-left: 2vw;
-    margin-right: 10vw;
-}
-
 .button {
     display: flex;
     font-family: sans-serif;
@@ -161,6 +163,9 @@ nav {
     background-color: #088;
     padding: 10px;
     border-radius: 15px;
+
+    margin-left: 2vw;
+    margin-right: 10vw;
 }
 
 .button:hover {

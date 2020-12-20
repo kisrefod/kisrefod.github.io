@@ -7,7 +7,7 @@
 
 .modalDiv {
     width: 70vh;
-    height: 45vh;
+    height: 35vh;
     border: 8px solid;
     border-image: repeating-linear-gradient(
         135deg,

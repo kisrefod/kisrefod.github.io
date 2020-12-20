@@ -33,13 +33,11 @@ $(document).ready(function() {
 
 function showSettings() {
     $('#username').val(username)
-    $('#blockNumber').val(blockNum)
     $('#timerCount').val(timerCount)
 }
 
 function settingApply() {
     let newUsername = $('#username').val()
-    let newBlockNumber = $('#blockNumber').val()
     let newTimerCount = $('#timerCount').val()
 
     removeBlocks()
@@ -52,13 +50,6 @@ function settingApply() {
         timerCount = newTimerCount
     }
 
-    if (newBlockNumber > maxBlockNum) {
-        blockNum = maxBlockNum
-    } else if (newBlockNumber < 1) {
-        blockNum = 1
-    } else {
-        blockNum = newBlockNumber
-    }
-
     createBlocks()
+    disableLvls()
 }

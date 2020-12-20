@@ -2,14 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Тыкалка</title>
+		<title>Клик-паззл</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/animations.css">
-		<link rel="stylesheet" type="text/css" href="css/animations.css">
 		<link rel="stylesheet" type="text/css" href="css/settings.css">
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
-		<script type="text/javascript" src="js/animations.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>	
 		<script type="text/javascript" src="js/settings.js"></script>
 	</head>
 
@@ -19,9 +16,9 @@
 		</header>
 		<nav>
 			<div id="navBlock"> 
-				<a class="navLinks" id="firstLink"" onclick="lvl1Pressed()">LVL 1</a>
-				<a class="navLinks" onclick="lvl2Pressed()">LVL 2</a>
-				<a class="navLinks" onclick="lvl3Pressed()">LVL 3</a>
+				<a class="navLinks" id="firstLink" onclick="lvl1Pressed()">Уровень 1</a>
+				<a class="navLinks" id="lvl2Button" onclick="lvl2Pressed()">Уровень 2</a>
+				<a class="navLinks" id="lvl3Button" onclick="lvl3Pressed()">Уровень 3</a>
 				<div class='colorDesign' id='firstColorDesign' onclick="firstColorDesign()"></div>
 				<div class='colorDesign' id='secondColorDesign' onclick="secondColorDesign()"></div>
 				<a href="#settingModal" class="openModal">
@@ -45,11 +42,6 @@
 					</div>
 					
 					<div class="settingField">
-						<input class="settingInput" id="blockNumber" type="number">
-						<p class="settingText">Число шариков (>0 и <10)</p>
-					</div>
-					
-					<div class="settingField">
 						<input class="settingInput" id="timerCount" type="number">
 						<p class="settingText">Значение таймера (>2)</p>
 					</div>
@@ -63,8 +55,10 @@
 
 		<div id="footer">
 			<div id="timer">20</div>
+			<div id="clickText"></div>
 			<div id="resultText"></div>
 			<div id="saveButton" class="button" onclick="savePressed()">СОХРАНИТЬ</div>
+			<div id="nextButton" class="button" onclick="nextPressed()">ДАЛЕЕ</div>
 			<div id="restartButton" class="button" onclick="restartLvl()">ЗАНОВО</div>
 		</div>
 	</body>

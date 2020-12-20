@@ -2,10 +2,10 @@ let sortedSequence = []
 let blockPositions = []
 let blockNum = 5
 
-let lvlNum = 1
+let lvlNum = 11
 
-let timerValue = 20
-let timerCount = 20
+let timerValue = 30
+let timerCount = 30
 
 const forbiddenTop = 50
 const forbiddenBottom = 400
@@ -18,12 +18,25 @@ let username = 'Пользователь'
 
 let timer
 
+let lvl1Passed = false
+let lvl2Passed = false
+
+let lvl1Result = 0
+let lvl2Result = 0
+let lvl3Result = 0
+
 $(document).ready(function () {
     createBlocks()
-    generateLvl1()
+    generateLvl()
     generateTimer()
     setTimer()
+    disableLvls()
 });
+
+function disableLvls() {
+    $('#lvl2Button').hide()
+    $('#lvl3Button').hide()
+}
 
 function setTimer() {
     timer = setInterval(function() {
@@ -58,7 +71,7 @@ function generateLvl1_2Blocks() {
 
 function generateLvl3Blocks() {
     for (let i = 1; i <= blockNum; i++) {
-        let img = '<img class="block" id="block' + i + '" onclick="blockPressed(this)" src="img/' + sortedSequence[i-1] + '"></img>'
+        let img = '<img class="block" id="block' + i + '" onclick="blockPressed(this)" src="img/' + sortedSequence[i-1] + '.png"></img>'
         $('#block'+i).replaceWith(img)
     }
 }
@@ -128,63 +141,91 @@ function changeBlockPositon() {
 }
 
 function lvl1Pressed() {
-    $("#instruction").html("LVL1: Последовательно выберите числа от меньшего к большему")
+    $("#instruction").html("Последовательно выберите числа от меньшего к большему")
     $("#instruction").css('font-size', '6.4vh')
 
-    lvlNum = 1
+    lvlNum = 11
+    lvl3Result = lvl2Result = lvl1Result = 0
     gameBlocked = false
     generateLvl1_2Blocks()
-    generateLvl1()
+    generateLvl()
     clearInterval(timer)
     generateTimer()
     setTimer()
 }
 
 function lvl2Pressed() {
-    $("#instruction").html("LVL2: Последовательно выберите буквы в порядке алфавита")
+    $("#instruction").html("Выберите буквы в порядке алфавита")
     $("#instruction").css('font-size', '6.4vh')
 
-    lvlNum = 2
+    lvlNum = 21
+    lvl3Result = lvl2Result = 0
     gameBlocked = false
-    generateLvl1_2Blocks()
-    generateLvl2()
+    generateLvl()
     clearInterval(timer)
     generateTimer()
     setTimer()
 } 
 
 function lvl3Pressed() {
-    $("#instruction").html("LVL3: Определите, что за слово изображено на картинке. Выберите те, первая буква которых встречается в алфавите раньше")
+    $("#instruction").html("Определите, что за слово изображено на картинке. Последовательно выберите те, у которых первая буква встречается в алфавите раньше")
     $("#instruction").css('font-size', '6.4vh')
 
-    lvlNum = 3
+    lvlNum = 31
+    lvl3Result = 0
     gameBlocked = false
-    generateSequanceLVL3()
-    generateLvl3Blocks()
-    generateLvl3()
+    generateLvl()
     clearInterval(timer)
     generateTimer()
     setTimer()
 }
 
-function generateLvl1() {
-    $('#resultText').hide()
-    $('#restartButton').hide()
-    $('#saveButton').hide()
-    $('#congratulations').hide()
+function generateLvl() {
+    if (lvlNum == 11) {
+        generateLvl1(1)
+    } else if (lvlNum == 12) {
+        generateLvl1(2)
+    } else if (lvlNum == 13) {
+        generateLvl1(3)
+    } else if (lvlNum == 21) {
+        generateLvl2(1)
+    } else if (lvlNum == 22) {
+        generateLvl2(2)
+    } else if (lvlNum == 23) {
+        generateLvl2(3)
+    } else if (lvlNum == 31) {
+        generateLvl3(1)
+    } else if (lvlNum == 32) {
+        generateLvl3(2)
+    } else {
+        generateLvl3(3)
+    }
+}
 
-    generateSequanceLVL1()
+function generateLvl1(sublvlNum) {
+    removeBlocks()
+    blockNum = 5
+    createBlocks()
+    hideResult()
+
+    let maxNum = 0
+    for (i = 0; i < sublvlNum; i++) {
+        maxNum = maxNum * 10 + 9
+    }
+    generateSequanceLVL1(maxNum)
+
     changeBlockContent()
     generateBlockPositions()
     changeBlockPositon()
 }
 
-function generateLvl2() {
-    $('#resultText').hide()
-    $('#restartButton').hide()
-    $('#saveButton').hide()
-    $('#congratulations').hide()
-
+function generateLvl2(sublvlNum) {
+    removeBlocks()
+    blockNum = 3 + sublvlNum
+    createBlocks()
+    generateLvl1_2Blocks()
+    
+    hideResult()
     generateSequanceLVL2()
     changeBlockContent()
     generateBlockPositions()
@@ -192,18 +233,28 @@ function generateLvl2() {
 }
 
 function generateLvl3() {
-    $('#resultText').hide()
-    $('#restartButton').hide()
-    $('#saveButton').hide()
-    $('#congratulations').hide()
-
+    removeBlocks()
+    blockNum = 5
+    createBlocks()
+    generateSequanceLVL3()
+    generateLvl3Blocks()
+    hideResult()
     generateBlockPositions()
     changeBlockPositon()
 }
 
-function generateSequanceLVL1() {
+function hideResult() {
+    $('#resultText').hide()
+    $('#restartButton').hide()
+    $('#nextButton').hide()
+    $('#saveButton').hide()
+    $('#congratulations').hide()
+}
+
+function generateSequanceLVL1(number) {
+    sortedSequence = []
     for (i = 0; i < blockNum; i++) {
-        let num = getRandNum(999)
+        let num = getRandNum(number)
         
         let numAlreadyMet = false
         for (j = 0; j < sortedSequence.length; j++) {
@@ -230,6 +281,7 @@ function generateSequanceLVL1() {
 }
 
 function generateSequanceLVL2() { 
+    sortedSequence = []
     let alphabet = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЫЭЮЯ";
     for (i = 0; i < blockNum; i++) {
         let index = getRandNum(alphabet.length)
@@ -250,20 +302,30 @@ function generateSequanceLVL2() {
         }
     }
     sortedSequence.sort()
+
+    console.dir(sortedSequence)
 }
 
 function generateSequanceLVL3() {
-    sortedSequence = ['арбуз.png', 'дерево.png', 'кот.png', 'лампочка.png', 'морковка.png', 'папка.png', 'свечка.png', 'телефон.png', 'утюг.png', 'шестерня.png']
+   let chaosSequence = ['арбуз', 'дерево', 'кот', 'лампочка', 'морковка', 'папка', 'свечка', 'телефон', 'утюг', 'шестерня']
+   chaosSequence.sort(() => Math.random() - 0.5)
+
+   let newSequence = []
+   for (i = 0; i < blockNum; i++) {
+       newSequence[i] = chaosSequence[i]
+   }
+   newSequence.sort()
+   sortedSequence = newSequence
 }
 
 function savePressed() {
     const a = document.createElement('a');
-    let msg = 'Пользователь под именем ' + username + ' прошел уровень ' + lvlNum + ' с результатом: ' + timerValue + '\n' + 'Значение таймера: ' + timerCount + '\n' + 'Число шариков: ' + blockNum
+    let msg = 'Пользователь под именем ' + username + ' прошел игру!\n' + 'Значение таймера: ' + timerCount + '\n' + 'Очки за первый уровень: ' + lvl1Result + '\nОчки за второй уровень: ' + lvl2Result + '\nОчки за третий уровень: ' + lvl3Result
     const file = new Blob([msg], {type: 'text/plain'});
     
     a.href= URL.createObjectURL(file);
     let dt = new Date()
-    a.download = dt.getDate() + '.' + dt.getMonth() + '.' + dt.getFullYear() + ' ' + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + '.txt';
+    a.download = username + ' ' + dt.getDate() + '.' + dt.getMonth() + '.' + dt.getFullYear() + ' ' + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + '.txt';
     a.click();
     URL.revokeObjectURL(a.href);
 }
@@ -283,10 +345,22 @@ function blockPressed(evt) {
                                 
     if (previousBlocksAreHidden) {
         $('#block' + blockIndex).hide()
+        console.dir(sortedSequence)
+        
+        $('#clickText').html(sortedSequence[blockIndex-1])
+        
+        
         if (blockIndex == blockNum) {
-            showResult()
+            $('#clickText').html('')
+            clearInterval(timer)
+            if (lvlNum == 33) {
+                showResult()
+            } else {
+                $('#nextButton').show()
+            }
         }
     } else {
+        $('#clickText').html('')
         gameBlocked = true
         clearInterval(timer)
         $('#resultText').text('Вы ошиблись : (')
@@ -296,20 +370,46 @@ function blockPressed(evt) {
 
 }
 
+function nextPressed() {
+    if(lvlNum >= 11 && lvlNum <= 13) {
+        lvl1Result = lvl1Result + timerValue
+    } else if (lvlNum >= 21 && lvlNum <= 23) {
+        lvl2Result = lvl2Result + timerValue
+    } else {
+        lvl3Result = lvl3Result + timerValue
+    }
+
+    if(lvlNum >= 11 && lvlNum < 13 || lvlNum >= 21 && lvlNum < 23 || lvlNum >= 31 && lvlNum < 33) {
+        lvlNum++
+    } else if (lvlNum == 13) {
+        lvlNum = 21
+        $('#lvl2Button').show()
+    } else if (lvlNum == 23) {
+        blockNum = 5
+        lvlNum = 31
+        $('#lvl3Button').show()
+        lvl3Pressed()
+        return
+    }
+
+    generateTimer()
+    setTimer()
+    showBlocks()
+    generateLvl()
+}
+
 function showResult() {
-    clearInterval(timer)
-    $('#resultText').text('Вы справились!')
+    $('#resultText').text('Вы справились! Теперь можете сохранить свой результат')
     $('#resultText').show()
-    $('#restartButton').show()
     $('#saveButton').show()
     $('#congratulations').show()
 }
 
 function restartLvl() {
     showBlocks()
-    if (lvlNum === 1) {
+    if (lvlNum === 11 || lvlNum === 12 || lvlNum === 13) {
         lvl1Pressed()
-    } else if (lvlNum === 2) {
+    } else if (lvlNum === 21 || lvlNum === 22 || lvlNum === 23) {
         lvl2Pressed()
     } else {
         lvl3Pressed()
