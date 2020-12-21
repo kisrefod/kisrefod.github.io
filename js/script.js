@@ -26,12 +26,23 @@ let lvl2Result = 0
 let lvl3Result = 0
 
 $(document).ready(function () {
+    disableLvls()
+    $('#titleUsername').val(username)
+});
+
+function titleApply() {
+    username = $('#titleUsername').val()
+    $('#titleScreen').hide()
+    gameBegin()
+}
+
+function gameBegin() {
     createBlocks()
     generateLvl()
     generateTimer()
     setTimer()
     disableLvls()
-});
+}
 
 function disableLvls() {
     $('#lvl2Button').hide()
@@ -142,11 +153,12 @@ function changeBlockPositon() {
 
 function lvl1Pressed() {
     $("#instruction").html("Последовательно выберите числа от меньшего к большему")
-    $("#instruction").css('font-size', '6.4vh')
+    $("#instruction").css('font-size', '4vh')
 
     lvlNum = 11
     lvl3Result = lvl2Result = lvl1Result = 0
     gameBlocked = false
+    $('#clickText').html('')
     generateLvl1_2Blocks()
     generateLvl()
     clearInterval(timer)
@@ -156,11 +168,12 @@ function lvl1Pressed() {
 
 function lvl2Pressed() {
     $("#instruction").html("Выберите буквы в порядке алфавита")
-    $("#instruction").css('font-size', '6.4vh')
+    $("#instruction").css('font-size', '4vh')
 
     lvlNum = 21
     lvl3Result = lvl2Result = 0
     gameBlocked = false
+    $('#clickText').html('')
     generateLvl()
     clearInterval(timer)
     generateTimer()
@@ -168,12 +181,13 @@ function lvl2Pressed() {
 } 
 
 function lvl3Pressed() {
-    $("#instruction").html("Определите, что за слово изображено на картинке. Последовательно выберите те, у которых первая буква встречается в алфавите раньше")
-    $("#instruction").css('font-size', '6.4vh')
+    $("#instruction").html("Определите, что за слово изображено на картинке. Последовательно выберите те картинки, у которых первая буква встречается в алфавите раньше")
+    $("#instruction").css('font-size', '4vh')
 
     lvlNum = 31
     lvl3Result = 0
     gameBlocked = false
+    $('#clickText').html('')
     generateLvl()
     clearInterval(timer)
     generateTimer()
@@ -347,7 +361,8 @@ function blockPressed(evt) {
         $('#block' + blockIndex).hide()
         console.dir(sortedSequence)
         
-        $('#clickText').html(sortedSequence[blockIndex-1])
+        let clickText = $('#clickText').html()
+        $('#clickText').html(clickText + ' ' + sortedSequence[blockIndex-1])
         
         
         if (blockIndex == blockNum) {
@@ -360,6 +375,8 @@ function blockPressed(evt) {
             }
         }
     } else {
+        $('#block' + blockIndex).css('background', '#f44')
+        $('#block' + blockIndex).css('border-color', '#c00')
         $('#clickText').html('')
         gameBlocked = true
         clearInterval(timer)
@@ -384,6 +401,8 @@ function nextPressed() {
     } else if (lvlNum == 13) {
         lvlNum = 21
         $('#lvl2Button').show()
+        lvl2Pressed()
+        return
     } else if (lvlNum == 23) {
         blockNum = 5
         lvlNum = 31

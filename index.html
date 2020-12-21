@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Клик-паззл</title>
+		<title>Клик-пазл</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/settings.css">
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -12,26 +12,39 @@
 
 	<body>
 		<header>
-			<a id="instruction">LVL1: Последовательно выберите числа от меньшего к большему</a>
+			<p id="instruction">Последовательно выберите числа от меньшего к большему</p>
 		</header>
 		<nav>
 			<div id="navBlock"> 
 				<a class="navLinks" id="firstLink" onclick="lvl1Pressed()">Уровень 1</a>
 				<a class="navLinks" id="lvl2Button" onclick="lvl2Pressed()">Уровень 2</a>
 				<a class="navLinks" id="lvl3Button" onclick="lvl3Pressed()">Уровень 3</a>
-				<div class='colorDesign' id='firstColorDesign' onclick="firstColorDesign()"></div>
-				<div class='colorDesign' id='secondColorDesign' onclick="secondColorDesign()"></div>
 				<a href="#settingModal" class="openModal">
 					<img id='settings' src="/img/settings.png">
 				</a>
+				<p class="navText">(Таймер = 30)</p>
 			</div>
 		</nav>
 		
 		<div id="siteBody">
 			<p id="congratulations">Поздравляем!</p>
+
+			<div id="titleScreen">
+				<p id="titleText">Клик-пазл</p>
+				<div class="titleField">
+					<input class="titleInput" id="titleUsername">
+					<p id="titleUsernameText">Представьтесь, пожалуйста</p>
+				</div>
+			
+				<button id="titleApply" onclick="titleApply()">НАЧАТЬ</button>
+
+				<p class="infoText" id="name">Костин Иван</p>
+				<p class="infoText" id="group">гр. 3530903/80302</p>
+			</div>
+
 			<div id="settingModal" class="modalDiv">
 				<div id="settingHeader">
-					<span class="modalTitle">Настройки</span>
+					<span class="modalTitle">Клик-пазл</span>
 					<span class="modalClose">X</span>
 				</div>
 
@@ -45,10 +58,12 @@
 						<input class="settingInput" id="timerCount" type="number">
 						<p class="settingText">Значение таймера (>2)</p>
 					</div>
+
+					<div class='colorDesign' id='firstColorDesign' onclick="firstColorDesign()"></div>
+					<div class='colorDesign' id='secondColorDesign' onclick="secondColorDesign()"></div>
 					
 					<button id="settingApply" onclick="settingApply()">ПРИМЕНИТЬ</button>
 				</div>
-				
 			</div>
 			<div id="overlay"></div>
 		</div>

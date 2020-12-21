@@ -18,18 +18,17 @@ header {
     position: absolute;
 	
     background-color: #036F03;
-    flex-shrink: 0;
     min-height: 15vh;
     min-width: 1200px;
 }
 
 #instruction {
-    display: inline-flex;
+    display: flex;
     align-self: center;
     text-decoration: none;
     color: white;
     font-family: sans-serif;
-    font-size: 6.4vh;
+    font-size: 4vh;
 }
 
 nav {
@@ -53,8 +52,17 @@ nav {
     align-self: center;
 }
 
+.navText {
+    display: inline-flex;
+    margin-left: 3vw;
+    margin-right: auto;
+    font-family: sans-serif;
+    font-size: 2.4vh;
+    color: white;
+}
+
 .colorDesign {
-    display: inline;
+    display: inline-flex;
     margin-left: 2vw;
     color: lightgrey;
     
@@ -213,4 +221,88 @@ nav {
 
     animation: swinging 30s ease-in-out;
     transform-origin: 50% 0;
+}
+
+#titleScreen {
+    display: flex;
+    position: fixed;
+    width: 1920px;
+    height: 1280px;
+    top: -10vh;
+    overflow: hidden;
+    z-index: 10;
+    background-image: url("../img/titleScreen.png");
+}
+
+#titleText {
+    display: flex;
+    position: absolute;
+    top: 10%;
+    margin-left: 20%;
+
+    font-family: sans-serif;
+    font-size: 6.4vh;
+    align-self: center;
+    color: white;
+}
+
+#titleUsernameText {
+    display: flex;
+    position: absolute;
+    top: 18%;
+    margin-left: 20%;
+
+    font-family: sans-serif;
+    font-size: 4vh;
+    align-self: center;
+    color: white;
+}
+
+#titleUsername {
+    display: flex;
+    position: absolute;
+    top: 24%;
+    margin-left: 20%;
+
+    border-radius: 10px;
+    border: 7px solid #878787;
+    padding: 4px 10px;
+    outline: 0;
+
+    font-size: 3.2vh;
+}
+
+#titleApply {
+    display: flex;
+    position: absolute;
+    top: 29%;
+    margin-left: 20%;
+
+    border-radius: 10px;
+    border: 0px;
+    background-color: #0a0;
+    padding: 10px;
+    font-size: 3.2vh;
+    color: white;
+}
+
+.infoText {
+    display: flex;
+    position: absolute;
+    
+
+    font-family: sans-serif;
+    font-size: 3vh;
+    align-self: center;
+    color: white;
+}
+
+#name {
+    top: 52%;
+    margin-left: 67%;
+}
+
+#group {
+    top: 55%;
+    margin-left: 67%;
 }

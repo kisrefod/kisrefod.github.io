@@ -50,6 +50,8 @@ function settingApply() {
         timerCount = newTimerCount
     }
 
+    $('.navText').html('(Таймер = ' + timerCount + ')')
+
     createBlocks()
     disableLvls()
 }
