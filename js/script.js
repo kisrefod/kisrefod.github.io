@@ -26,7 +26,7 @@ let lvl2Result = 0
 let lvl3Result = 0
 
 $(document).ready(function () {
-    disableLvls()
+    //disableLvls()
     $('#titleUsername').val(username)
 });
 
@@ -247,7 +247,7 @@ function generateLvl2(sublvlNum) {
 
 function generateLvl3() {
     removeBlocks()
-    blockNum = 5
+    blockNum = 10
     createBlocks()
     generateSequanceLVL3()
     generateLvl3Blocks()
@@ -315,12 +315,10 @@ function generateSequanceLVL2() {
         }
     }
     sortedSequence.sort()
-
-    console.dir(sortedSequence)
 }
 
 function generateSequanceLVL3() {
-   let chaosSequence = ['арбуз', 'балерина', 'веер', 'груша', 'дерево', 'ёлка', 'кот', 'лампочка', 'морковка', 'носок', 'папка', 'радио', 'свечка', 'телефон', 'утюг', 'фотоаппарат', 'циркуль', 'шестерня', 'юла', 'яблоко']
+   let chaosSequence = ['арбуз', 'балерина', 'веер', 'груша', 'дерево', 'елка', 'кот', 'лампочка', 'морковка', 'носок', 'папка', 'радио', 'свечка', 'телефон', 'утюг', 'фотоаппарат', 'циркуль', 'шестерня', 'юла', 'яблоко']
    chaosSequence.sort(() => Math.random() - 0.5)
 
    let newSequence = []
@@ -329,7 +327,6 @@ function generateSequanceLVL3() {
    }
    newSequence.sort()
    sortedSequence = newSequence
-   console.dir(sortedSequence)
 }
 
 function savePressed() {
@@ -359,7 +356,6 @@ function blockPressed(evt) {
                                 
     if (previousBlocksAreHidden) {
         $('#block' + blockIndex).hide()
-        console.dir(sortedSequence)
         
         let clickText = $('#clickText').html()
         $('#clickText').html(clickText + ' ' + sortedSequence[blockIndex-1])
