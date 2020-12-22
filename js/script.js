@@ -26,7 +26,7 @@ let lvl2Result = 0
 let lvl3Result = 0
 
 $(document).ready(function () {
-    //disableLvls()
+    disableLvls()
     $('#titleUsername').val(username)
 });
 
@@ -247,7 +247,7 @@ function generateLvl2(sublvlNum) {
 
 function generateLvl3() {
     removeBlocks()
-    blockNum = 10
+    blockNum = 5
     createBlocks()
     generateSequanceLVL3()
     generateLvl3Blocks()
