@@ -81,7 +81,7 @@ function generateLvl1_2Blocks() {
 
 function generateLvl3Blocks() {
     for (let i = 1; i <= blockNum; i++) {
-        let img = '<img class="block" id="block' + i + '" onclick="blockPressed(this)" src="img/' + sortedSequence[i-1] + '.png"></img>'
+        let img = '<img class="block" id="block' + i + '" onclick="blockPressed(this)" src="./img/' + sortedSequence[i-1] + '.png"></img>'
         $('#block'+i).replaceWith(img)
     }
 }
