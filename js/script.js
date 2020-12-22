@@ -41,7 +41,6 @@ function gameBegin() {
     generateLvl()
     generateTimer()
     setTimer()
-    disableLvls()
 }
 
 function disableLvls() {
@@ -321,7 +320,7 @@ function generateSequanceLVL2() {
 }
 
 function generateSequanceLVL3() {
-   let chaosSequence = ['арбуз', 'дерево', 'кот', 'лампочка', 'морковка', 'папка', 'свечка', 'телефон', 'утюг', 'шестерня']
+   let chaosSequence = ['арбуз', 'балерина', 'веер', 'груша', 'дерево', 'ёлка', 'кот', 'лампочка', 'морковка', 'носок', 'папка', 'радио', 'свечка', 'телефон', 'утюг', 'фотоаппарат', 'циркуль', 'шестерня', 'юла', 'яблоко']
    chaosSequence.sort(() => Math.random() - 0.5)
 
    let newSequence = []
@@ -330,6 +329,7 @@ function generateSequanceLVL3() {
    }
    newSequence.sort()
    sortedSequence = newSequence
+   console.dir(sortedSequence)
 }
 
 function savePressed() {
